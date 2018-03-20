@@ -81,9 +81,70 @@
                     <view key="view" contentMode="scaleToFill" id="b1r-gM-XaA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="タイトル" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XLw-Jl-iF4">
+                                <rect key="frame" x="10" y="74" width="355" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fAT-Wt-zMR">
+                                <rect key="frame" x="10" y="105" width="355" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="内容" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FGc-Xt-cVt">
+                                <rect key="frame" x="10" y="145" width="355" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="o7R-IZ-bsd">
+                                <rect key="frame" x="10" y="176" width="355" height="120"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="Dqi-Qn-hLu"/>
+                                </constraints>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="wWb-o1-C1R">
+                                <rect key="frame" x="0.0" y="306" width="375" height="120"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="Emq-Z1-GJa"/>
+                                </constraints>
+                                <date key="date" timeIntervalSinceReferenceDate="543280852.86624396">
+                                    <!--2018-03-20 23:20:52 +0000-->
+                                </date>
+                            </datePicker>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="UR0-aG-gyP" firstAttribute="trailing" secondItem="FGc-Xt-cVt" secondAttribute="trailing" constant="10" id="2h3-HU-6jb"/>
+                            <constraint firstItem="XLw-Jl-iF4" firstAttribute="top" secondItem="UR0-aG-gyP" secondAttribute="top" constant="10" id="8fQ-fR-qHe"/>
+                            <constraint firstItem="UR0-aG-gyP" firstAttribute="trailing" secondItem="XLw-Jl-iF4" secondAttribute="trailing" constant="10" id="GjM-eL-rdp"/>
+                            <constraint firstItem="UR0-aG-gyP" firstAttribute="trailing" secondItem="fAT-Wt-zMR" secondAttribute="trailing" constant="10" id="Gzu-vb-vsd"/>
+                            <constraint firstItem="XLw-Jl-iF4" firstAttribute="leading" secondItem="UR0-aG-gyP" secondAttribute="leading" constant="10" id="JFh-sp-5GM"/>
+                            <constraint firstItem="FGc-Xt-cVt" firstAttribute="leading" secondItem="UR0-aG-gyP" secondAttribute="leading" constant="10" id="K3O-H8-zxG"/>
+                            <constraint firstItem="wWb-o1-C1R" firstAttribute="trailing" secondItem="UR0-aG-gyP" secondAttribute="trailing" id="Ldy-EY-rb9"/>
+                            <constraint firstItem="fAT-Wt-zMR" firstAttribute="top" secondItem="XLw-Jl-iF4" secondAttribute="bottom" constant="10" id="NJ5-MF-cTu"/>
+                            <constraint firstItem="fAT-Wt-zMR" firstAttribute="leading" secondItem="UR0-aG-gyP" secondAttribute="leading" constant="10" id="P8g-A3-kL2"/>
+                            <constraint firstItem="wWb-o1-C1R" firstAttribute="top" secondItem="o7R-IZ-bsd" secondAttribute="bottom" constant="10" id="U1S-an-9zj"/>
+                            <constraint firstItem="UR0-aG-gyP" firstAttribute="trailing" secondItem="o7R-IZ-bsd" secondAttribute="trailing" constant="10" id="U7f-3K-RaK"/>
+                            <constraint firstItem="FGc-Xt-cVt" firstAttribute="top" secondItem="fAT-Wt-zMR" secondAttribute="bottom" constant="10" id="WuH-6k-OK1"/>
+                            <constraint firstItem="o7R-IZ-bsd" firstAttribute="top" secondItem="FGc-Xt-cVt" secondAttribute="bottom" constant="10" id="bDF-J4-Yzq"/>
+                            <constraint firstItem="wWb-o1-C1R" firstAttribute="leading" secondItem="UR0-aG-gyP" secondAttribute="leading" id="wXS-6h-YMB"/>
+                            <constraint firstItem="o7R-IZ-bsd" firstAttribute="leading" secondItem="UR0-aG-gyP" secondAttribute="leading" constant="10" id="xGG-LU-zc4"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="UR0-aG-gyP"/>
                     </view>
+                    <connections>
+                        <outlet property="contentsTextView" destination="o7R-IZ-bsd" id="heH-5o-6EB"/>
+                        <outlet property="datePicker" destination="wWb-o1-C1R" id="lu5-nG-s21"/>
+                        <outlet property="titleTextField" destination="fAT-Wt-zMR" id="Rm6-Mv-rzP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cqd-gH-s2Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
