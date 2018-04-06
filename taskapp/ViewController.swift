@@ -10,12 +10,16 @@ import UIKit
 import RealmSwift
 import UserNotifications
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
 
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var SearchBar: UISearchBar!
     
     //Realmインスタンスを取得する
     let realm = try! Realm()
+    
+    //検索結果配列
+    var searchResult = [String]()
     
     //DB内のタスクが格納されるリスト
     //日付近い順\順でソート：降順
@@ -26,6 +30,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
+        SearchBar.delegate = self
+        //何も入力されていなくてもReturnキーを押せるようにする
+        SearchBar.enablesReturnKeyAutomatically = false
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -79,7 +88,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     // MARK: UITableViewDelegateプロトコルのメソッド
     // 各セルを選択した時に実行されるメソッド
-    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: "cellSegue", sender: nil)
     }
     //セルが削除が可能なことを伝えるメソッド
@@ -114,6 +123,26 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
     }
 }
+    
+    //検索ボタン押下時の呼び出しメソッド
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar){
+        //キーボードを閉じる
+        SearchBar.endEditing(true)
+    }
+    //テキスト変更時の呼び出しメソッド
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String){
+        
+        searchResult.removeAll()
+        
+        if searchText == "" {
+           taskArray = try! Realm().objects(Task.self).sorted(byKeyPath: "date" , ascending: false)
+        } else {
+            let predicate = NSPredicate(format: "category = %@", searchText)
+            taskArray = try! Realm().objects(Task.self).sorted(byKeyPath: "date" , ascending: false).filter(predicate)
+        }
+        //テーブルを再読み込みする
+        tableView.reloadData()
+    }
 }
 
 
